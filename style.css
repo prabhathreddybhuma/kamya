@@ -312,15 +312,13 @@ input[type="text"]::placeholder {
 @media (max-width: 600px) {
     body {
         height: 100dvh;
-        padding-bottom: env(safe-area-inset-bottom);
+        width: 100vw;
         overflow: hidden;
-        /* Prevent body scroll, handle inside sections */
     }
 
     /* Reset absolute centering for sections on mobile to prevent clipping */
     .section {
         position: fixed;
-        /* Fixed to viewport */
         top: 0;
         left: 0;
         transform: none;
@@ -329,10 +327,14 @@ input[type="text"]::placeholder {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        /* keep centered if it fits */
         align-items: center;
         padding: 1rem;
-        /* Safe padding */
+        z-index: 10;
     }
+
+    /* If content is too tall, allow scrolling at section level? 
+       No, better to scroll inside the card/wrappers */
 
     /* Container Adjustments */
     .content-wrapper {
@@ -341,18 +343,18 @@ input[type="text"]::placeholder {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        /* Center vertically in wrapper */
+        /* If content overflows, we need this not to clip top */
+        margin: auto;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         line-height: 1.3;
         margin-bottom: 2rem;
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     /* Card Adjustments */
@@ -361,92 +363,105 @@ input[type="text"]::placeholder {
         padding: 1.5rem;
         width: 100%;
         max-width: 100%;
-        /* Limit height to ensure button fits below */
-        max-height: 65dvh;
+        /* Use more safe space */
+        max-height: 80dvh;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-    }
 
-    /* Ensure scrollability for content */
-    .letter-content {
+        /* Ensure we don't force justify-content: center which clips top */
+        justify-content: flex-start;
         overflow-y: auto;
+        /* Scroll inside the card */
         -webkit-overflow-scrolling: touch;
     }
 
-    .memory-card .question-text {
-        font-size: 1.4rem;
-        margin-bottom: 2rem;
-    }
-
-    /* Inputs */
-    .input-group {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        width: 100%;
+    /* Letter Specifics */
+    .letter-content {
+        /* On mobile, sometimes the image is outside or inside? 
+           Based on script.js, image is separate then text. 
+           Wait, script.js structure is:
+           .letter-content > .memory-image-container
+                           > #letter-text
+           
+           So scrolling .letter-content handles both image and text.
+        */
         align-items: center;
-    }
-
-    input[type="text"],
-    input[type="date"] {
-        width: 100%;
-        font-size: 1.2rem;
-        padding: 0.8rem;
-    }
-
-    .btn-small {
-        width: 100%;
-        padding: 1rem;
-        font-size: 0.9rem;
+        /* Center image horizontally */
     }
 
     /* Images */
     .memory-image-container {
         margin-bottom: 1.5rem;
         flex-shrink: 0;
-        /* Keep image size stable */
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .memory-img {
-        max-height: 200px;
-        /* Smaller to save vertical space */
+        max-height: 250px;
+        width: auto;
+        max-width: 100%;
         border: 6px solid #fff;
         border-bottom: 20px solid #fff;
     }
 
     /* Text Content */
+    #letter-text {
+        width: 100%;
+        text-align: left;
+        /* Easier to read */
+    }
+
     .letter-content p {
         font-size: 1.1rem;
-        line-height: 1.5;
+        line-height: 1.6;
         margin-bottom: 1.5rem;
+        text-align: left;
+        /* Better readability */
     }
 
     /* Button positioning */
     #next-memory-btn {
-        margin-top: 1.5rem;
-        /* Space between card and button */
+        margin-top: 1rem;
         width: 100%;
-        /* Full width button on mobile */
         flex-shrink: 0;
+        min-height: 50px;
+    }
+
+    /* Input Group */
+    .input-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100% !important;
+        /* Force full width on mobile */
+        font-size: 1.1rem;
+    }
+
+    /* Final Section scrollability */
+    #final-section .content-wrapper {
+        overflow-y: auto;
+        max-height: 100%;
+        justify-content: flex-start;
+        padding-top: 4rem;
+        /* Space for top */
     }
 
     /* Music Control - Adjust position */
     .music-control {
-        bottom: 20px;
-        right: 20px;
-        opacity: 0.7;
-        background: rgba(0, 0, 0, 0.4);
+        bottom: 15px;
+        right: 15px;
+        opacity: 0.8;
+        background: rgba(0, 0, 0, 0.6);
         padding: 8px 12px;
         border-radius: 30px;
-        backdrop-filter: blur(5px);
-    }
-
-    .music-control:hover {
-        opacity: 1;
-    }
-
-    .music-label {
-        font-size: 0.7rem;
     }
 }
