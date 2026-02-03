@@ -4,28 +4,28 @@ const MEMORIES = [
         question: "On what day did my words first find their way to you?",
         type: "date",
         answers: ["2025-08-29"],
-        image: "assets/memory1.jpg",
+        image: "assets/IMG_5264.jpeg",
         letterContent: ""
     },
     {
         id: 2,
         question: "What was the first story we watched unfold together on the same screen?",
         answers: ["conjuring", "the conjuring"],
-        image: "assets/memory2.jpg",
+        image: "assets/IMG_7206.jpeg",
         letterContent: ""
     },
     {
         id: 3,
         question: "Where did our lips meet for the very first time?",
         answers: ["tuscan table", "the tuscan table"],
-        image: "assets/memory3.jpg",
+        image: "assets/IMG_9909.jpeg",
         letterContent: ""
     },
     {
         id: 4,
         question: "What name did I choose for you in my phone, before I ever had to leave?",
         answers: ["cutie"],
-        image: "assets/memory1.jpg", // Reusing placeholder, please update!
+        image: "assets/IMG_5264.jpeg", // Reusing placeholder, please update!
         letterContent: ""
     },
     {
@@ -33,14 +33,14 @@ const MEMORIES = [
         question: "On which day did I gather the courage to call you mine?",
         type: "date",
         answers: ["2025-10-17"],
-        image: "assets/memory2.jpg",
+        image: "assets/IMG_7206.jpeg",
         letterContent: ""
     },
     {
         id: 6,
         question: "Where did our paths cross for the very first time? (physically)",
         answers: ["ub building", "ub"],
-        image: "assets/memory3.jpg",
+        image: "assets/IMG_9909.jpeg",
         letterContent: ""
     },
     {
@@ -48,7 +48,7 @@ const MEMORIES = [
         question: "When you look ahead five years from now… where do you see us standing together?",
         type: "text",
         answers: ["*", "anything"], // '*' indicates any answer is accepted
-        image: "assets/memory1.jpg",
+        image: "assets/IMG_5264.jpeg",
         letterContent: ""
     }
 ];

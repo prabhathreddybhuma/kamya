@@ -265,10 +265,7 @@ function showFinalSection() {
         { opacity: 1, duration: 2 }
     );
 
-    gsap.fromTo(".final-title",
-        { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 2, ease: "power3.out" }
-    );
+
 
     gsap.fromTo("#final-message-text p",
         { opacity: 0, filter: "blur(5px)" },
