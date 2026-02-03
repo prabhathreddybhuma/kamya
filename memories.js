@@ -25,7 +25,7 @@ const MEMORIES = [
         id: 4,
         question: "What name did I choose for you in my phone, before I ever had to leave?",
         answers: ["cutie"],
-        image: "assets/IMG_5264.jpeg", // Reusing placeholder, please update!
+        image: "assets/IMG_0491.JPG",
         letterContent: ""
     },
     {
@@ -33,14 +33,14 @@ const MEMORIES = [
         question: "On which day did I gather the courage to call you mine?",
         type: "date",
         answers: ["2025-10-17"],
-        image: "assets/IMG_7206.jpeg",
+        image: "assets/IMG_7157.jpeg",
         letterContent: ""
     },
     {
         id: 6,
         question: "Where did our paths cross for the very first time? (physically)",
         answers: ["ub building", "ub"],
-        image: "assets/IMG_9909.jpeg",
+        image: "assets/IMG_7165.jpeg",
         letterContent: ""
     },
     {
@@ -48,7 +48,7 @@ const MEMORIES = [
         question: "When you look ahead five years from now… where do you see us standing together?",
         type: "text",
         answers: ["*", "anything"], // '*' indicates any answer is accepted
-        image: "assets/IMG_5264.jpeg",
+        image: "assets/IMG_9990.JPG",
         letterContent: ""
     }
 ];
